@@ -41,10 +41,7 @@ const pixels = document.querySelectorAll('.pixel');
 // pixels change color when clicked
 pixels.forEach((pix) => {
 
-    pix.addEventListener("click", function(e) {
+    pix.addEventListener("mouseover", function(e) {
         e.target.style.backgroundColor = "black";
     });
 });
-
-
-
