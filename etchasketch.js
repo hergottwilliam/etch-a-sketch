@@ -1,6 +1,15 @@
 const gamebox = document.querySelector(".gamebox");
 
+let gamebox_height = gamebox.offsetHeight;
+let gamebox_width = gamebox.offsetWidth;
+
+console.log(gamebox_height, gamebox_width);
+
 function createGrid(size){ // size = length of each side (size**2 == total pixels)
+    // ex:
+    // gamebox dimensions = 700px X 700px
+    // pixel dimensions = 700px/size X 700px/size 
+    
     let total_pixels = size**2
     let grid_columns = "";
 
@@ -10,11 +19,10 @@ function createGrid(size){ // size = length of each side (size**2 == total pixel
         pixel.classList.add("pixel");
 
         // style the pixel
-        pixel.textContent = "X";
         pixel.style.backgroundColor = "white";
-        pixel.style.border = "2px solid black";
-        pixel.style.width = "20px";
-        pixel.style.height = "20px";
+        pixel.style.border = "1px solid black";
+        pixel.style.width = `${gamebox_width / size}px`;
+        pixel.style.height = `${gamebox_height / size}px`;
 
         gamebox.appendChild(pixel);
     }
@@ -28,4 +36,4 @@ function createGrid(size){ // size = length of each side (size**2 == total pixel
 
 }
 
-createGrid(4);
+createGrid(16);
