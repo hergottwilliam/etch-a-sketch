@@ -1,0 +1,22 @@
+*{
+    text-align: center;
+    background-color: palegreen;
+    font-family: sans-serif;
+}
+
+.mainbox{
+    display: flex;
+    justify-content: center;
+}
+
+.gamebox{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    border: 5px solid black;
+    height: 300px;
+    width: 300px;
+
+
+}
