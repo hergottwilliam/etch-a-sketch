@@ -18,7 +18,7 @@ function createGrid(size){ // size = desired length of each side (size**2 == tot
 
         // style the pixel
         pixel.style.backgroundColor = "white";
-        pixel.style.border = "1px solid black";
+        pixel.style.border = "0px solid black";
         pixel.style.width = `${gamebox_width / size}px`;
         pixel.style.height = `${gamebox_height / size}px`;
 
@@ -33,7 +33,8 @@ function createGrid(size){ // size = desired length of each side (size**2 == tot
     gamebox.style.gridTemplateColumns = grid_columns;
 }
 
-createGrid(16);
+// grid size changes with number of pixels BUG
+createGrid(50);
 
 // select all the pixels that currently exist in grid
 const pixels = document.querySelectorAll('.pixel');
