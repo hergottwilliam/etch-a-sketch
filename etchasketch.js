@@ -4,6 +4,9 @@ const DEFAULT_COLOR = "black";
 let currentSize = DEFAULT_SIZE;
 let currentColor = DEFAULT_COLOR;
 
+const displayCurrentColor = document.querySelector(".currentcolor");
+displayCurrentColor.textContent = `Color: ${currentColor}`;
+
 const gamebox = document.querySelector(".gamebox");
 
 let gamebox_height = gamebox.offsetHeight;
@@ -57,17 +60,39 @@ function clearGrid() {
     }
 }
 
-// START OF APP, grid = 16x16 by default
+// START OF APP, grid = 16x16, color = black, by default
 createGrid(DEFAULT_SIZE);
 
-// select slider elements
+
+// select all elements that can modify the grid
 const slider = document.querySelector(".slider");
 const slider_value = document.querySelector(".slidervalue");
+const black_button = document.querySelector(".blackbutton");
+const rainbow_button = document.querySelector(".rainbowbutton");
 
 // slider changes size of grid
 slider.addEventListener("change", function() {
     currentSize = slider.value;
-    slider_value.textContent = `${currentSize}x${currentSize}`;
+    slider_value.textContent = `Size: ${currentSize}x${currentSize}`;
     clearGrid();
     createGrid(currentSize);
 });
+
+// buttons change drawing color
+black_button.addEventListener("click", function(){
+    currentColor = "black";
+    displayCurrentColor.textContent = `Color: ${currentColor}`;
+});
+
+rainbow_button.addEventListener("click", function(){
+    currentColor = "blue";
+    displayCurrentColor.textContent = `Color: ${currentColor}`;
+});
+
+
+// NOTES
+// change from hover to click and hover for coloring
+// change css so that when elements in the toolbox change they don't move the grid
+// fix bug that creates random red lines sometimes (probably a "crack" in the grid box as red is the background color)
+// finish toolbox features
+// add icon to title
