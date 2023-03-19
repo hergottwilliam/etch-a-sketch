@@ -69,6 +69,8 @@ const slider = document.querySelector(".slider");
 const slider_value = document.querySelector(".slidervalue");
 const black_button = document.querySelector(".blackbutton");
 const rainbow_button = document.querySelector(".rainbowbutton");
+const eraser_button = document.querySelector(".eraserbutton");
+const clear_button = document.querySelector(".clearbutton");
 
 // slider changes size of grid
 slider.addEventListener("change", function() {
@@ -78,7 +80,7 @@ slider.addEventListener("change", function() {
     createGrid(currentSize);
 });
 
-// buttons change drawing color
+// ALL BUTTONS
 black_button.addEventListener("click", function(){
     currentColor = "black";
     displayCurrentColor.textContent = `Color: ${currentColor}`;
@@ -89,6 +91,17 @@ rainbow_button.addEventListener("click", function(){
     displayCurrentColor.textContent = `Color: ${currentColor}`;
 });
 
+eraser_button.addEventListener("click", function() {
+    currentColor = "white";
+    displayCurrentColor.textContent = "Color: eraser";
+});
+
+clear_button.addEventListener("click", function() {
+    clearGrid();
+    createGrid(currentSize);
+});
+
+
 
 // NOTES
 // change from hover to click and hover for coloring
@@ -96,3 +109,5 @@ rainbow_button.addEventListener("click", function(){
 // fix bug that creates random red lines sometimes (probably a "crack" in the grid box as red is the background color)
 // finish toolbox features
 // add icon to title
+// research naming functions in JS and consider removing all underscores
+// add readme
