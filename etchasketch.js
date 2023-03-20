@@ -12,6 +12,16 @@ const gamebox = document.querySelector(".gamebox");
 let gamebox_height = gamebox.offsetHeight;
 let gamebox_width = gamebox.offsetWidth;
 
+// function that generates random color (returns hexidecimal string)
+function generateRandomColor(){
+    let maxVal = 0xFFFFFF;
+    let randomNumber = Math.random() * maxVal;
+    randomNumber = Math.floor(randomNumber);
+    randomNumber = randomNumber.toString(16);
+    let randColor = randomNumber.padStart(6, 0);
+    return `#${randColor.toUpperCase()}`;
+}
+
 // create a grid of size x size
 function createGrid(size){ // size = desired length of each side (size**2 == total pixels)
     // ex:
@@ -47,11 +57,18 @@ function createGrid(size){ // size = desired length of each side (size**2 == tot
     pixels.forEach((pix) => {
 
         pix.addEventListener("mouseover", function(e) {
-            e.target.style.backgroundColor = currentColor;
+            if (currentColor == "rainbow"){
+                e.target.style.backgroundColor = generateRandomColor();
+            }
+            else {
+                e.target.style.backgroundColor = currentColor;
+            }
+            
         });
     });
 }
 
+// clear grid by removing all pixels (deletes entire grid, not a grid reset)
 function clearGrid() {
     // clear the grid
     const deletePixels = document.querySelectorAll(".pixel");
@@ -62,7 +79,6 @@ function clearGrid() {
 
 // START OF APP, grid = 16x16, color = black, by default
 createGrid(DEFAULT_SIZE);
-
 
 // select all elements that can modify the grid
 const slider = document.querySelector(".slider");
@@ -87,7 +103,7 @@ black_button.addEventListener("click", function(){
 });
 
 rainbow_button.addEventListener("click", function(){
-    currentColor = "blue";
+    currentColor = "rainbow";
     displayCurrentColor.textContent = `Color: ${currentColor}`;
 });
 
@@ -99,15 +115,18 @@ eraser_button.addEventListener("click", function() {
 clear_button.addEventListener("click", function() {
     clearGrid();
     createGrid(currentSize);
+    currentColor = "black";
+    displayCurrentColor.textContent = `Color: ${currentColor}`;
 });
 
 
 
 // NOTES
-// change from hover to click and hover for coloring
+// change from hover to click and hover for coloring (optional)
 // change css so that when elements in the toolbox change they don't move the grid
 // fix bug that creates random red lines sometimes (probably a "crack" in the grid box as red is the background color)
 // finish toolbox features
 // add icon to title
 // research naming functions in JS and consider removing all underscores
 // add readme
+// make toolbox pretty
