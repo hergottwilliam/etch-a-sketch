@@ -5,10 +5,6 @@
     color: yellow;
 }
 
-.logo{
-    padding-bottom: 0px;
-}
-
 h1{
     padding: 50px;
 }
@@ -24,22 +20,26 @@ h1{
     flex-direction: row;
     align-items: baseline;
     justify-content: center;
-    gap: 50px;
+    gap: 7px;
     font-size: x-large;
-}
-
-.sliderbox{
-    width: 200px;
 }
 
 .currentcolor{
     text-align: left;
 }
 
+.sliderbox{
+    width: 200px;
+}
+
+.slidervalue{
+    padding-top: 10px;
+}
+
 .gamebox{
     display: grid;
-    height: 700px;
-    width: 700px;
+    height: 680px;
+    width: 680px;
 }
 
 button{
