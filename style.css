@@ -6,7 +6,7 @@
 }
 
 .logo{
-    padding-bottom: 50px;
+    padding-bottom: 0px;
 }
 
 h1{
@@ -14,22 +14,35 @@ h1{
 }
 .mainbox{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    gap: 300px;
+    align-items: center;
 }
 
 .toolbox{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: baseline;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     font-size: x-large;
+}
+
+.sliderbox{
+    width: 200px;
+}
+
+.currentcolor{
+    text-align: left;
 }
 
 .gamebox{
     display: grid;
     height: 700px;
     width: 700px;
+}
+
+button{
+    font-size: larger;
+    height: 50px;
 }
