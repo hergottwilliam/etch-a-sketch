@@ -120,13 +120,10 @@ clear_button.addEventListener("click", function() {
 });
 
 
-
 // NOTES
-// change from hover to click and hover for coloring (optional)
+
 // change css so that when elements in the toolbox change they don't move the grid
 // fix bug that creates random red lines sometimes (probably a "crack" in the grid box as red is the background color)
-// finish toolbox features
-// add icon to title
 // research naming functions in JS and consider removing all underscores
 // add readme
 // make toolbox pretty
