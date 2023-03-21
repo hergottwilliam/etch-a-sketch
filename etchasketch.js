@@ -1,16 +1,18 @@
+// NOTES
+// fix bug that creates random red lines across the grid (a gap in the grid box showing the background)
+
 const DEFAULTSIZE = 16;
 const DEFAULTCOLOR = "black";
 
 let currentSize = DEFAULTSIZE;
 let currentColor = DEFAULTCOLOR;
 
-const displayCurrentColor = document.querySelector(".currentcolor");
-displayCurrentColor.textContent = `Color: ${currentColor}`;
-
 const gamebox = document.querySelector(".gamebox");
-
 let gameboxHeight = gamebox.offsetHeight;
 let gameboxWidth = gamebox.offsetWidth;
+
+const displayCurrentColor = document.querySelector(".currentcolor");
+displayCurrentColor.textContent = `Color: ${currentColor}`;
 
 // function that generates random color (returns hexidecimal string)
 function generateRandomColor(){
@@ -48,7 +50,7 @@ function createGrid(size){ // size = desired length of each side (size**2 == tot
     for (let j = 0; j < size; j++){
         gridColumns += "auto ";
     }
-    gamebox.style.gridGap = "0px";
+    
     gamebox.style.gridTemplateColumns = gridColumns;
 
     // select all the pixels that currently exist in grid
@@ -77,7 +79,7 @@ function clearGrid() {
     }
 }
 
-// START OF APP, grid = 16x16, color = black, by default
+// START: grid = 16x16, color = black, by default
 createGrid(DEFAULTSIZE);
 
 // select all elements that can modify the grid
@@ -119,7 +121,3 @@ clearButton.addEventListener("click", function() {
     displayCurrentColor.textContent = `Color: ${currentColor}`;
 });
 
-
-// NOTES
-
-// fix bug that creates random red lines sometimes (probably a "crack" in the grid box as red is the background color)
